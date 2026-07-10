@@ -1,0 +1,116 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "67bec322bee0",
+  "session_id": "40e01863-2dbe-4d2a-9838-787045e6fbe0",
+  "strategy": "manual-commit",
+  "created_at": "2026-07-10T09:56:25.782286835Z",
+  "branch": "workshop/claude-solo",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "index.html",
+    "voortgang.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-4-6",
+  "turn_id": "f6ca6ed96e51",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 511,
+    "cache_creation_tokens": 94454,
+    "cache_read_tokens": 803597,
+    "output_tokens": 23608,
+    "api_call_count": 13
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_017kFYEfHkkZtGv3Z55Rjnhz",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "onboarding"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 12,
+        "end": 13,
+        "entry_ids": [
+          "d227f846-e126-4e2c-ae61-c7f3325ff703"
+        ],
+        "tool_use_id": "toolu_017kFYEfHkkZtGv3Z55Rjnhz"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_017kFYEfHkkZtGv3Z55Rjnhz"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: onboarding",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01NtQwwnANUc8sUAF4tMGWFx",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "ui-concept-builder"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f6ca6ed96e51",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 34,
+        "end": 35,
+        "entry_ids": [
+          "4e8c38c6-8ef1-4c54-b6e1-c00625925b0c"
+        ],
+        "tool_use_id": "toolu_01NtQwwnANUc8sUAF4tMGWFx"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01NtQwwnANUc8sUAF4tMGWFx"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: ui-concept-builder",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "initial_attribution": {
+    "calculated_at": "2026-07-10T09:56:25.393486452Z",
+    "agent_lines": 734,
+    "agent_removed": 3,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 734,
+    "total_lines_changed": 737,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 84,
+      "user_lines_removed": 2,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.json": 84
+      },
+      "user_removed_per_file": {
+        ".devcontainer/post-create.sh": 2
+      }
+    }
+  ]
+}

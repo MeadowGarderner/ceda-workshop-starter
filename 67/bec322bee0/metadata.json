@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.8.42",
+  "checkpoint_id": "67bec322bee0",
+  "strategy": "manual-commit",
+  "branch": "workshop/claude-solo",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "index.html",
+    "voortgang.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/67/bec322bee0/0/metadata.json",
+      "transcript": "/67/bec322bee0/0/full.jsonl",
+      "compact_transcript": "/67/bec322bee0/0/transcript.jsonl",
+      "content_hash": "/67/bec322bee0/0/content_hash.txt",
+      "prompt": "/67/bec322bee0/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 511,
+    "cache_creation_tokens": 94454,
+    "cache_read_tokens": 803597,
+    "output_tokens": 23608,
+    "api_call_count": 13
+  }
+}
