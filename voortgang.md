@@ -9,7 +9,8 @@ handoff.md en readiness.md zijn de eindsamenvattingen.
 |---|-----|-----|--------|-----|
 | 1 | Claude | Builder | ✅ Klaar | Briefing gelezen, brandbook verwerkt |
 | 2 | Claude | Builder | ✅ Klaar | index.html gebouwd (static, één pagina) |
-| 3 | Claude | Engineer | 🔧 Bezig | Stack-advies + readiness.md |
+| 3 | Claude | Builder  | ✅ Klaar | Copy herschreven (toon: uitnodigend-persoonlijk) |
+| 4 | Claude | Engineer | 🔧 Bezig | Stack-advies + readiness.md |
 
 Status: 🆕 Nieuw · 🔧 Bezig · ✅ Klaar
 
