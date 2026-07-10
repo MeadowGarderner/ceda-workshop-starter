@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
-set -euo pipefail
+# Geen set -e: individuele fouten mogen de rest niet blokkeren.
+set -uo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 echo "── Claude Code CLI installeren ──"
-npm install -g @anthropic-ai/claude-code --allow-scripts=@anthropic-ai/claude-code
+npm install -g @anthropic-ai/claude-code --allow-scripts=@anthropic-ai/claude-code || echo "⚠ Claude Code installatie mislukt"
 
 echo "── Entire CLI installeren ──"
-curl -fsSL https://entire.io/install.sh | bash
+curl -fsSL https://entire.io/install.sh | bash || echo "⚠ Entire CLI installatie mislukt"
 export PATH="$HOME/.local/bin:$PATH"
 
 echo "── Entire inschakelen voor dit project ──"
 entire enable 2>/dev/null || true
 
 echo "── Live-preview server installeren ──"
-npm install -g serve
+npm install -g serve || echo "⚠ serve installatie mislukt"
 
-# ── onboard + preview als echte executables in PATH ──
-# Geen bashrc-functie nodig — werkt in elke terminal ongeacht shell-config.
+# ── onboard + preview als executables in PATH ──
 
 cat > "$HOME/.local/bin/onboard" << SCRIPT
 #!/usr/bin/env bash
@@ -27,7 +27,7 @@ chmod +x "$HOME/.local/bin/onboard"
 
 cat > "$HOME/.local/bin/preview" << 'SCRIPT'
 #!/usr/bin/env bash
-exec serve "${1:-.}" -l 3000
+exec npx -y serve "${1:-.}" -l 3000
 SCRIPT
 chmod +x "$HOME/.local/bin/preview"
 
@@ -52,4 +52,4 @@ fi
 BASHRC
 
 echo "── Klaar ──"
-echo "Open een nieuwe terminal en typ 'onboard' om je credentials in te stellen."
+echo "Typ 'onboard' om je credentials in te stellen."
