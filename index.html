@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEDA — Center for Educational Data Analytics</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,600&display=swap">
+  <style>
+    :root {
+      --oranje:      #DD784B;
+      --zwart:       #000000;
+      --roze:        #F4D9DC;
+      --blauw:       #3D68EC;
+      --geel:        #F4D74B;
+      --groen:       #00AF81;
+      --licht-groen: #CCEEE6;
+      --licht-blauw: #D6E2FD;
+      --licht-oranje:#FFE4D8;
+      --licht-geel:  #FCF5D4;
+      --wit:         #FFFFFF;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'General Sans', system-ui, -apple-system, sans-serif;
+      color: var(--zwart);
+      background: var(--wit);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--wit);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 0 2.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--zwart);
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .nav-badge {
+      background: var(--groen);
+      color: var(--wit);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--zwart);
+      font-size: 0.9rem;
+      opacity: 0.6;
+      transition: opacity .2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-links .cta {
+      background: var(--blauw);
+      color: var(--wit) !important;
+      opacity: 1 !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 64px);
+      background: var(--roze);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 5rem 5rem 5rem 5rem;
+      position: relative;
+      overflow: hidden;
+      gap: 4rem;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--oranje);
+      color: var(--wit);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 600;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: rgba(0,0,0,0.6);
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-payoff {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--oranje);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--zwart);
+      color: var(--wit);
+      padding: .85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-primary:hover { background: var(--blauw); transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--zwart);
+      padding: .85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      border: 2px solid var(--zwart);
+      transition: transform .15s;
+    }
+
+    .btn-secondary:hover { transform: translateY(-2px); }
+
+    /* Hero shapes grid */
+    .hero-shapes {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 400px;
+      margin-left: auto;
+    }
+
+    .tile {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tile svg { width: 58%; height: 58%; }
+
+    /* Decorative arc */
+    .hero-arc {
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 420px;
+      opacity: .18;
+      pointer-events: none;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 5rem 5rem; }
+
+    .section-eyebrow {
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--oranje);
+      margin-bottom: 1rem;
+    }
+
+    .section h2 {
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      max-width: 700px;
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(0,0,0,.6);
+      max-width: 660px;
+    }
+
+    /* ── OVER ── */
+    .about { background: var(--wit); }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(0,0,0,.65);
+      margin-bottom: 1.25rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .stat {
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .stat-num {
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1;
+      display: block;
+      margin-bottom: .4rem;
+    }
+
+    .stat-lbl {
+      font-size: .88rem;
+      line-height: 1.4;
+      opacity: .7;
+    }
+
+    /* ── AANBOD ── */
+    .aanbod {
+      background: var(--zwart);
+      color: var(--wit);
+    }
+
+    .aanbod .section-eyebrow { color: var(--geel); }
+
+    .aanbod .section-lead { color: rgba(255,255,255,.55); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      border-radius: 20px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 240px;
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .card p {
+      font-size: .9rem;
+      line-height: 1.65;
+      opacity: .72;
+      flex: 1;
+    }
+
+    .card-link {
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      transition: gap .15s;
+    }
+
+    .card-link:hover { gap: .6rem; }
+
+    /* ── ECOSYSTEEM ── */
+    .ecosysteem { background: var(--licht-blauw); }
+
+    .eco-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .eco-card {
+      background: var(--wit);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-decoration: none;
+      color: var(--zwart);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .eco-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(0,0,0,.1);
+    }
+
+    .eco-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eco-card h3 { font-size: 1.1rem; font-weight: 600; }
+
+    .eco-card p {
+      font-size: .9rem;
+      line-height: 1.65;
+      color: rgba(0,0,0,.6);
+      flex: 1;
+    }
+
+    .eco-arrow {
+      font-size: 1.3rem;
+      color: var(--blauw);
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--zwart);
+      color: var(--wit);
+      padding: 3rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-brand .name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: .3rem;
+    }
+
+    .footer-brand .tagline {
+      font-size: .82rem;
+      color: rgba(255,255,255,.45);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.45);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--wit); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+        min-height: auto;
+        gap: 2rem;
+      }
+      .hero-shapes { max-width: 100%; margin: 0 auto; }
+      .section { padding: 3.5rem 2rem; }
+      .about-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .eco-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; align-items: flex-start; padding: 2.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- Npuls-stijl stippenlogo als inline SVG -->
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+      <circle cx="15" cy="15" r="2.2" fill="#000"/>
+      <circle cx="15" cy="7"  r="1.7" fill="#000" opacity=".8"/>
+      <circle cx="15" cy="23" r="1.7" fill="#000" opacity=".8"/>
+      <circle cx="7"  cy="15" r="1.7" fill="#000" opacity=".8"/>
+      <circle cx="23" cy="15" r="1.7" fill="#000" opacity=".8"/>
+      <circle cx="9.4" cy="9.4"  r="1.3" fill="#000" opacity=".55"/>
+      <circle cx="20.6" cy="9.4" r="1.3" fill="#000" opacity=".55"/>
+      <circle cx="9.4" cy="20.6" r="1.3" fill="#000" opacity=".55"/>
+      <circle cx="20.6" cy="20.6" r="1.3" fill="#000" opacity=".55"/>
+      <circle cx="15" cy="3"  r=".9" fill="#000" opacity=".3"/>
+      <circle cx="15" cy="27" r=".9" fill="#000" opacity=".3"/>
+      <circle cx="3"  cy="15" r=".9" fill="#000" opacity=".3"/>
+      <circle cx="27" cy="15" r=".9" fill="#000" opacity=".3"/>
+    </svg>
+    CEDA
+    <span class="nav-badge">Npuls</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#over">Over CEDA</a></li>
+    <li><a href="#aanbod">Aanbod</a></li>
+    <li><a href="#ecosysteem">Ecosysteem</a></li>
+    <li><a href="https://github.com/cedanl" class="cta">GitHub →</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Center for Educational Data Analytics</span>
+    <h1>Data in dienst van beter onderwijs.</h1>
+    <p class="hero-sub">
+      CEDA helpt onderwijsinstellingen om met data tot inzicht te komen —
+      en van inzicht tot actie. Open source, samen, vanuit Npuls.
+    </p>
+    <p class="hero-payoff">Onderwijs bewegen.</p>
+    <div class="btn-row">
+      <a href="https://github.com/cedanl" class="btn-primary">Bekijk GitHub →</a>
+      <a href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda" class="btn-secondary">Join de community</a>
+    </div>
+  </div>
+
+  <!-- Geometrische vormentaal uit het brandbook -->
+  <div class="hero-shapes" aria-hidden="true">
+    <div class="tile" style="background:#3D68EC">
+      <svg viewBox="0 0 60 60"><polygon points="30,8 52,52 8,52" fill="#F4D74B"/></svg>
+    </div>
+    <div class="tile" style="background:#F4D9DC">
+      <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" fill="#00AF81"/></svg>
+    </div>
+    <div class="tile" style="background:#DD784B">
+      <svg viewBox="0 0 60 60">
+        <path d="M10 52 Q30 8 50 52" stroke="rgba(255,255,255,.65)" stroke-width="3" fill="none"/>
+        <path d="M10 44 Q30 4 50 44"  stroke="rgba(255,255,255,.4)"  stroke-width="2.5" fill="none"/>
+        <path d="M10 36 Q30 2 50 36"  stroke="rgba(255,255,255,.2)"  stroke-width="2"   fill="none"/>
+      </svg>
+    </div>
+    <div class="tile" style="background:#F4D74B">
+      <svg viewBox="0 0 60 60"><rect x="14" y="14" width="32" height="32" rx="6" fill="#DD784B"/></svg>
+    </div>
+    <div class="tile" style="background:#000">
+      <svg viewBox="0 0 60 60">
+        <polygon points="30,10 50,50 10,50" fill="#00AF81"/>
+        <polygon points="30,50 50,10 10,10" fill="#3D68EC"/>
+      </svg>
+    </div>
+    <div class="tile" style="background:#CCEEE6">
+      <svg viewBox="0 0 60 60">
+        <circle cx="22" cy="22" r="13" fill="#3D68EC"/>
+        <circle cx="40" cy="40" r="10" fill="#DD784B"/>
+      </svg>
+    </div>
+    <div class="tile" style="background:#F4D9DC">
+      <svg viewBox="0 0 60 60">
+        <line x1="30" y1="10" x2="30" y2="50" stroke="#000" stroke-width="3"/>
+        <line x1="10" y1="30" x2="50" y2="30" stroke="#000" stroke-width="3"/>
+        <line x1="15" y1="15" x2="45" y2="45" stroke="#000" stroke-width="2.5"/>
+        <line x1="45" y1="15" x2="15" y2="45" stroke="#000" stroke-width="2.5"/>
+      </svg>
+    </div>
+    <div class="tile" style="background:#00AF81">
+      <svg viewBox="0 0 60 60">
+        <polygon points="10,50 30,10 50,50" fill="rgba(255,255,255,.3)"/>
+        <polygon points="10,10 30,50 50,10" fill="rgba(255,255,255,.15)"/>
+      </svg>
+    </div>
+    <div class="tile" style="background:#D6E2FD">
+      <svg viewBox="0 0 60 60">
+        <path d="M55 55 Q5 55 5 5"   stroke="#3D68EC" stroke-width="3"   fill="none"/>
+        <path d="M55 55 Q15 55 15 5" stroke="#3D68EC" stroke-width="2"   fill="none" opacity=".5"/>
+        <path d="M55 55 Q25 55 25 5" stroke="#3D68EC" stroke-width="1.5" fill="none" opacity=".3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Decoratieve boog rechtsonder (uit Npuls vormentaal) -->
+  <svg class="hero-arc" viewBox="0 0 420 420" fill="none" aria-hidden="true">
+    <path d="M420 420 Q0 420 0 0"   stroke="#DD784B" stroke-width="3"   fill="none"/>
+    <path d="M420 420 Q60 420 60 0" stroke="#DD784B" stroke-width="2"   fill="none" opacity=".5"/>
+    <path d="M420 420 Q120 420 120 0" stroke="#DD784B" stroke-width="1.5" fill="none" opacity=".3"/>
+  </svg>
+</section>
+
+<!-- ── OVER CEDA ── -->
+<section class="section about" id="over">
+  <span class="section-eyebrow">Wie zijn wij</span>
+  <h2>Datakracht voor het hele onderwijs.</h2>
+  <p class="section-lead">
+    CEDA is een samenwerkingsverband binnen Npuls dat onderwijsinstellingen helpt
+    om data zinvol in te zetten. Van open source tools tot kennisdeling, van analyses
+    tot concrete actie.
+  </p>
+
+  <div class="about-body">
+    <div class="about-text">
+      <p>
+        We geloven dat data het onderwijs beter maakt — als het toegankelijk is voor iedereen.
+        Daarom bouwen we open source, delen we kennis in een actieve community en werken we
+        samen met instellingen van grote universiteiten tot kleine mbo's.
+      </p>
+      <p>
+        CEDA valt onder Npuls, het nationale programma dat hoger onderwijs en mbo digitaal
+        versterkt. Samen met SURF, Vereniging Hogescholen, UNL en andere partners.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat" style="background:var(--geel)">
+        <span class="stat-num">40+</span>
+        <span class="stat-lbl">Aangesloten instellingen</span>
+      </div>
+      <div class="stat" style="background:var(--licht-groen)">
+        <span class="stat-num">100%</span>
+        <span class="stat-lbl">Open source tools</span>
+      </div>
+      <div class="stat" style="background:var(--licht-blauw)">
+        <span class="stat-num">1</span>
+        <span class="stat-lbl">Actieve community</span>
+      </div>
+      <div class="stat" style="background:var(--licht-oranje)">
+        <span class="stat-num">∞</span>
+        <span class="stat-lbl">Mogelijkheden met data</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAT WE BIEDEN ── -->
+<section class="section aanbod" id="aanbod">
+  <span class="section-eyebrow">Ons aanbod</span>
+  <h2>Wat CEDA te bieden heeft.</h2>
+  <p class="section-lead">
+    Van kant-en-klare tools tot diepgaande analyses — CEDA ondersteunt jouw instelling op meerdere manieren.
+  </p>
+
+  <div class="cards">
+    <!-- Open Source Tools -->
+    <div class="card" style="background:#3D68EC;color:#fff">
+      <div class="card-icon" style="background:rgba(255,255,255,.15)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Open Source Tools</h3>
+      <p>Vrij te gebruiken tools en dashboards voor data-analyse in het onderwijs. Gebouwd met en voor instellingen.</p>
+      <a href="https://github.com/cedanl" class="card-link" style="color:#F4D74B">Bekijk GitHub →</a>
+    </div>
+
+    <!-- Data Analyse -->
+    <div class="card" style="background:#00AF81;color:#fff">
+      <div class="card-icon" style="background:rgba(255,255,255,.15)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Data Analyse</h3>
+      <p>Maak zin van je onderwijsdata. We helpen bij analyses, dashboards en rapportages die écht iets zeggen.</p>
+      <a href="https://npuls.nl/" class="card-link" style="color:#F4D74B">Meer over Npuls →</a>
+    </div>
+
+    <!-- Kennisdeling -->
+    <div class="card" style="background:#DD784B;color:#fff">
+      <div class="card-icon" style="background:rgba(255,255,255,.15)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Kennisdeling</h3>
+      <p>Leer van en met andere instellingen. We delen methodieken, bevindingen en best practices via onze community.</p>
+      <a href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda" class="card-link" style="color:#F4D74B">Naar de community →</a>
+    </div>
+
+    <!-- Innovatie -->
+    <div class="card" style="background:#F4D74B;color:#000">
+      <div class="card-icon" style="background:rgba(0,0,0,.08)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Innovatie & Onderzoek</h3>
+      <p>We verkennen nieuwe manieren om data in te zetten voor beter onderwijs — van AI-toepassingen tot privacy-by-design.</p>
+      <a href="https://npuls.nl/" class="card-link" style="color:#000">Meer weten →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ECOSYSTEEM ── -->
+<section class="section ecosysteem" id="ecosysteem">
+  <span class="section-eyebrow">Ons netwerk</span>
+  <h2>Onderdeel van een groter geheel.</h2>
+  <p class="section-lead">
+    CEDA staat niet op zichzelf. We zijn verbonden met het brede Npuls-ecosysteem
+    en een actieve community van data-professionals in het onderwijs.
+  </p>
+
+  <div class="eco-grid">
+    <a href="https://github.com/cedanl" class="eco-card">
+      <div class="eco-icon" style="background:#000">
+        <!-- GitHub mark -->
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff">
+          <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </div>
+      <h3>GitHub — CEDA</h3>
+      <p>Alle open source tools, scripts en projecten van CEDA. Vrij te gebruiken en bij te dragen.</p>
+      <span class="eco-arrow">→</span>
+    </a>
+
+    <a href="https://npuls.nl/" class="eco-card">
+      <div class="eco-icon" style="background:#DD784B">
+        <!-- Npuls stippenmark -->
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="2"   fill="#fff"/>
+          <circle cx="13" cy="6"  r="1.5" fill="#fff" opacity=".8"/>
+          <circle cx="13" cy="20" r="1.5" fill="#fff" opacity=".8"/>
+          <circle cx="6"  cy="13" r="1.5" fill="#fff" opacity=".8"/>
+          <circle cx="20" cy="13" r="1.5" fill="#fff" opacity=".8"/>
+          <circle cx="8.1" cy="8.1"  r="1.2" fill="#fff" opacity=".5"/>
+          <circle cx="17.9" cy="8.1" r="1.2" fill="#fff" opacity=".5"/>
+          <circle cx="8.1" cy="17.9" r="1.2" fill="#fff" opacity=".5"/>
+          <circle cx="17.9" cy="17.9" r="1.2" fill="#fff" opacity=".5"/>
+        </svg>
+      </div>
+      <h3>Npuls</h3>
+      <p>Het nationale programma dat hoger onderwijs en mbo digitaal versterkt. CEDA is één van de projecten.</p>
+      <span class="eco-arrow">→</span>
+    </a>
+
+    <a href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda" class="eco-card">
+      <div class="eco-icon" style="background:#3D68EC">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Community</h3>
+      <p>Sluit je aan bij data- en AI-professionals uit het onderwijs. Deel kennis, stel vragen, werk samen.</p>
+      <span class="eco-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">
+    <div class="name">CEDA — Center for Educational Data Analytics</div>
+    <div class="tagline">Onderwijs bewegen. — Onderdeel van Npuls</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/cedanl">GitHub</a>
+    <a href="https://npuls.nl/">Npuls</a>
+    <a href="https://community-data-ai.npuls.nl/groups/view/44d20066-53a8-48c2-b4e9-be348e05d273/project-center-for-educational-data-analytics-ceda">Community</a>
+  </div>
+</footer>
+
+</body>
+</html>
