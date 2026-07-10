@@ -12,7 +12,7 @@ handoff.md en readiness.md zijn de eindsamenvattingen.
 | 3 | Claude | Builder  | ✅ Klaar | Copy herschreven (toon: uitnodigend-persoonlijk) |
 | 4 | Claude | Engineer | ✅ Klaar | Stack-advies geschreven |
 | 5 | Claude | Builder  | ✅ Klaar | handoff.md geschreven |
-| 6 | Claude | Engineer | 🔧 Bezig | readiness.md schrijven |
+| 6 | Claude | Engineer | ✅ Klaar | readiness.md geschreven |
 
 Status: 🆕 Nieuw · 🔧 Bezig · ✅ Klaar
 
