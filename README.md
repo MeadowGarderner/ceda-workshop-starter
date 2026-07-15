@@ -26,7 +26,7 @@ Open Claude Code in de projectmap:
 claude
 ```
 
-Claude leest `CLAUDE.md` en `PLANNING.md` automatisch in en begeleidt je door de workshop.
+Typ daarna je eerste bericht — bijvoorbeeld **"hoi"** of **"start"** — om de onboarding te starten. Claude begeleidt je dan automatisch door de workshop.
 
 ## Wat je bouwt
 
