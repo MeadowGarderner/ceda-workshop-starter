@@ -43,6 +43,15 @@
             "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard-conventions.mjs\""
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/task-commit.sh\""
+          }
+        ]
       }
     ],
     "Stop": [
