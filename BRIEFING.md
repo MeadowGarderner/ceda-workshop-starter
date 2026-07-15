@@ -31,6 +31,3 @@ Bonus (buiten scope, puur als iemand zelf verder wil): op basis van handoff.md +
 -
 -
 
-## Rollen
-Builder: ___________
-Engineer: ___________

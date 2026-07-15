@@ -11,6 +11,10 @@ dist/
 .env
 .env.local
 .env.production
+.env.*
+
+# Secrets
+secrets.sh
 
 # IDE
 .idea/
