@@ -2,31 +2,37 @@
 
 Workshopomgeving voor het bouwen van de eerste conceptversie van de [CEDA](https://github.com/cedanl)-website — in 30-40 minuten, begeleid door Claude Code.
 
-## Vereisten
-
-- [Node.js](https://nodejs.org) v18+
-- [Claude Code](https://claude.ai/code) (CLI)
-
-## Starten
-
-```bash
-git clone https://github.com/cedanl/ceda-workshop-starter/
-cd ceda-workshop-starter
-npm install
-npm run dev
-```
-
-Open `http://localhost:4321` in je browser.
-
 ## Workshop starten
 
-Open Claude Code in de projectmap:
+Kies je werkomgeving en open Claude Code — de rest gaat vanzelf.
 
-```bash
-claude
-```
+### Optie A — Lokaal
 
-Typ daarna je eerste bericht — bijvoorbeeld **"hoi"** of **"start"** — om de onboarding te starten. Claude begeleidt je dan automatisch door de workshop.
+1. Installeer [Node.js](https://nodejs.org) v18+ en [Claude Code](https://claude.ai/code)
+2. Clone de repo en open de map in Claude Code:
+   ```bash
+   git clone https://github.com/cedanl/ceda-workshop-starter/
+   cd ceda-workshop-starter
+   claude
+   ```
+
+### Optie B — Dev Container (VS Code)
+
+1. Installeer [VS Code](https://code.visualstudio.com) + de [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extensie
+2. Open de repo in VS Code → klik **"Reopen in Container"**
+3. Open Claude Code vanuit de geïntegreerde terminal: `claude`
+
+### Optie C — GitHub Codespaces
+
+1. Klik op **Code → Codespaces → Create codespace on main**
+2. Wacht tot de omgeving klaar is
+3. Open Claude Code in de terminal: `claude`
+
+---
+
+Typ je eerste bericht — **"hoi"** of **"start"** — en Claude begeleidt je door de workshop. De lokale site start automatisch op.
+
+> Hulp nodig? Ping ons in de teamschat.
 
 ## Wat je bouwt
 
