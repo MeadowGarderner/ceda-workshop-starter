@@ -9,6 +9,10 @@ Modify the design system in `src/styles/globals.css` using Tailwind CSS v4's `@t
 
 Color request from the user (ask if empty): $ARGUMENTS
 
+## Source of Truth
+
+Als `DESIGN.md` bestaat en brand tokens bevat (kleuren, typografie, radius), lees die dan **eerst** en gebruik die waarden als input — tenzij de gebruiker expliciet iets anders opgeeft via `$ARGUMENTS`.
+
 ## Current Theme Location
 
 All design tokens are in `src/styles/globals.css` under:
