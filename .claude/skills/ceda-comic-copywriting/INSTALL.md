@@ -2,7 +2,7 @@
 
 The deadpan comic-strip house voice from the CEDA site, packaged as an installable skill. Install it once and it works across **all** your projects, not just this repo.
 
-The installable file is [`dist/ceda-comic-copywriting.skill`](dist/ceda-comic-copywriting.skill).
+The installable file is [`package/ceda-comic-copywriting.skill`](package/ceda-comic-copywriting.skill).
 
 ## What it does
 
@@ -12,7 +12,7 @@ Rewrites and drafts user-facing copy (headlines, taglines, hero text, card descr
 
 ### Option A — Save button (easiest, Claude Desktop / Claude.ai)
 
-1. Download `dist/ceda-comic-copywriting.skill` from this repo.
+1. Download `package/ceda-comic-copywriting.skill` from this repo.
 2. Open it in Claude. A skill card appears with a **Save skill** button.
 3. Click **Save skill**. It's now on your account and available in every conversation.
 
@@ -53,4 +53,4 @@ The source of truth is [`SKILL.md`](SKILL.md) in this repo. If you improve the v
 python3 -m scripts.package_skill /path/to/ceda-comic-copywriting
 ```
 
-Then commit the refreshed `dist/ceda-comic-copywriting.skill`.
+Then commit the refreshed `package/ceda-comic-copywriting.skill`.
