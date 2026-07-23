@@ -6,7 +6,7 @@
 
 ## Reflectie #1 — Maarten (Builder) — 2026-07-23 14:04
 
-**Kosten:** niet opgehaald (`/cost` is deze sessie niet gedraaid).
+**Kosten (deze sessie):** $17.83 · actief 42m 33s · API-tijd 30m · +681 / −159 regels · model 100% Opus, 0% Haiku · cache hit 99%.
 
 ### Hoe je dit hebt aangepakt
 Je kwam binnen zonder code-ervaring en met een losse opdracht ("clone dit en doe iets"). In plaats van een plan vooraf stuurde je met korte, concrete wensen: "Dilbert-stijl", "check op AI-patronen", "zet 'm live", "mijn foto als achtergrond", "maak er een skill van". Je liet het bouwen aan Claude Code en beoordeelde het resultaat. Prima werkwijze voor een eerste keer: je hoefde niets van de techniek te weten, je hoefde alleen te reageren op wat je zag.
