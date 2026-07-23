@@ -23,6 +23,8 @@ interface Props {
 
 const { showText = true, size = 'md', class: className = '' } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 const sizeClasses = {
   sm: 'h-5 w-5',
   md: 'h-6 w-6',
@@ -36,7 +38,7 @@ const textSizeClasses = {
 };
 ---
 
-<a href="/" class:list={['flex items-center space-x-2', className]}>
+<a href={`${base}/`} class:list={['flex items-center space-x-2', className]}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"

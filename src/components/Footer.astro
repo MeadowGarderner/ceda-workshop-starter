@@ -20,10 +20,12 @@ interface Props {
 
 const { variant = 'boxed' } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+
 const footerLinks = {
   astrodeck: [
-    { href: '/', label: 'Home' },
-    { href: '/#menukaart', label: 'Wat wij doen' },
+    { href: `${base}/`, label: 'Home' },
+    { href: `${base}/#menukaart`, label: 'Wat wij doen' },
     { href: 'https://github.com/cedanl', label: 'GitHub' },
   ],
   pages: [
