@@ -1,9 +1,9 @@
 ---
-name: copywriting
-description: Write website and marketing copy in CEDA's deadpan house voice — dry, concrete, understated office humor that deflates jargon instead of adding it. Use whenever writing or editing user-facing copy: headlines, taglines, hero text, section intros, button labels, card descriptions, empty states, error messages, about pages, or any short marketing prose. Trigger on "write copy", "write a tagline/headline", "make this punchier", "rewrite this section", "needs a hook", "sounds too corporate/salesy", and Dutch equivalents ("schrijf een kop", "maak dit pakkender", "dit klinkt te wollig/commercieel"). Reach for it even when the user just pastes a bland sentence and asks to improve it.
+name: ceda-comic-copywriting
+description: Write website and marketing copy in the CEDA Comic house voice: dry, concrete, understated office humor (the deadpan comic-strip tone from the CEDA site) that deflates jargon instead of adding it. Use whenever writing or editing user-facing copy: headlines, taglines, hero text, section intros, button labels, card descriptions, empty states, error messages, about pages, or any short marketing prose. Trigger on "write copy", "write a tagline/headline", "make this punchier", "rewrite this section", "needs a hook", "sounds too corporate/salesy", "in the CEDA voice", and Dutch equivalents ("schrijf een kop", "maak dit pakkender", "dit klinkt te wollig/commercieel"). Reach for it even when the user just pastes a bland sentence and asks to improve it.
 ---
 
-# Copywriting: the CEDA house voice
+# CEDA Comic copywriting: the house voice
 
 This skill captures the voice used on the CEDA site: dry, concrete, understated. It reads like a smart colleague who has seen how the work actually goes and describes it plainly, with a straight face. The humor comes from recognition, not from jokes.
 
