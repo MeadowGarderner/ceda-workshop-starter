@@ -88,6 +88,14 @@ Na elke afgeronde stap: update Status + Output in de tabel.
 
 ---
 
+## Model
+
+Standaard model: **claude-sonnet-4-6** (ingesteld via `settings.json`).
+
+De gebruiker mag overstappen naar een ander model. Als dat gebeurt (via `/model` of expliciete vraag), noteer dit dan direct in `PLANNING.md` onder een sectie `## Model log` met: datum, gekozen model, en reden indien gegeven.
+
+---
+
 ## Auto-commit (overschrijft globale regel)
 
 In dit project wordt **automatisch gecommit** na elke Claude-sessie via een Stop hook. De globale regel "commit nooit zonder opdracht" geldt hier **niet** — de Stop hook regelt dit.
